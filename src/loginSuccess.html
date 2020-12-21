@@ -1,0 +1,34 @@
+<html>
+<head>
+   
+    <title>Login Success  </title>
+   
+</head>
+<body style="background: white;">
+    <div>
+        <h3>Welcome to the Network</h3>
+        
+            <button onclick="logout()">
+                Logout  
+                </button>
+
+        </form>
+        
+    </div>
+ <script>
+    function logout()
+    {
+       
+        var request = new XMLHttpRequest();
+        request.open('GET','http://apitestserver.xphasenetwork.net:6098/logout');
+        request.send();
+        request.onload =  function()
+        {
+            location.replace('./login.html')
+         }
+
+    }
+
+ </script>   
+</body>
+</html>

@@ -1,0 +1,87 @@
+GET http://apitestserver.xphasenetwork.net:6098
+
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 30
+ETag: W/"1e-cRuue7Q1VaZKjUKwkR46fiyMwuM"
+Date: Mon, 21 Dec 2020 07:07:05 GMT
+Connection: close
+
+{
+  "results": "InvalidIpAddress"
+}
+
+####
+GET http://apitestserver.xphasenetwork.net:6098/version
+
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 18
+ETag: W/"12-2jtnePzTCS4Un7eB+6KIZIuCk8Q"
+Set-Cookie: connect.sid=s%3AxEkfly4GVkcCbYwjLF8KiK-MoZmV8EKy.33ga2WXdqNtsGseZj74r13%2Fuq5jkVXkx02ZsFdTbEEc; Path=/; Expires=Mon, 21 Dec 2020 07:09:00 GMT; HttpOnly
+Date: Mon, 21 Dec 2020 07:08:00 GMT
+Connection: close
+
+{
+  "version": "1.01"
+}
+
+
+
+####
+POST http://apitestserver.xphasenetwork.net:6098/login
+
+// url address :  http://192.168.0.44
+Content-Type: application/json
+
+{
+    "name":"john",
+    "password":"secretPassword"
+}
+
+
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 22
+ETag: W/"16-O9aVE5tz25xHkaTI7P2PcUcdtDo"
+Set-Cookie: connect.sid=s%3AxEkfly4GVkcCbYwjLF8KiK-MoZmV8EKy.33ga2WXdqNtsGseZj74r13%2Fuq5jkVXkx02ZsFdTbEEc; Path=/; Expires=Mon, 21 Dec 2020 07:09:41 GMT; HttpOnly
+Date: Mon, 21 Dec 2020 07:08:41 GMT
+Connection: close
+
+{
+  "sessionName": "john"
+}
+
+####
+GET http://apitestserver.xphasenetwork.net:6098/logout
+Content-Type: application/json
+
+
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Date: Mon, 21 Dec 2020 07:09:11 GMT
+Connection: close
+Content-Length: 0
+
+####
+
+
+####
+GET http://apitestserver.xphasenetwork.net:6098/users
+
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 43
+ETag: W/"2b-ik9FzddghxR0CWxyVN4Uj/NqhEM"
+Set-Cookie: connect.sid=s%3AIP2x9aHnV7cZSUIh8_OY_-ck9pLZwPZp.%2BEvA2gZBrf%2FaXEmaNdgY4vha7wuRnSLaQEaw%2BU9PmsY; Path=/; Expires=Mon, 21 Dec 2020 07:10:34 GMT; HttpOnly
+Date: Mon, 21 Dec 2020 07:09:34 GMT
+Connection: close
+
+{
+  "name": "john",
+  "password": "secretPassword"
+}

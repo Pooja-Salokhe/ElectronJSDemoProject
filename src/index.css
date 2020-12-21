@@ -1,0 +1,26 @@
+.location-verification {
+  background-image: url("./images/locationVerification.png");
+  height: 600px;
+  width: 800px;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+}
+
+.unauthorzied-IP {
+  background-image: url("./images/unauthorised-aceess.jpg");
+  height: 600px;
+  width: 800px;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+}
+
+.continue-button {
+  height: 60px;
+  width: 418px;
+  margin-top: 170px;
+  background-color: darkkhaki;
+  font-size: 30;
+  font-style: revert;
+}

@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+    <title>Location Verification</title>
+  </head>
+  <body>
+    <div class="location-verification">
+      <button class="continue-button" onclick="verifyLocation()">
+        Process
+      </button>
+    </div>
+    <script>
+      // verifyLocation function verify the IP address
+      function verifyLocation() {
+        alert("Verifying.......");
+        var request = new XMLHttpRequest();
+        request.open("GET", "http://apitestserver.xphasenetwork.net:6098");
+        request.send();
+        request.onload = function () {
+          console.log("Response:", request);
+          if (this.readyState == 4 && this.status == 200) {
+            const myIP = JSON.parse(request.responseText);
+            console.log("my ip :", myIP);
+            if (myIP.result === "InvalidIpAddress") {
+              location.replace("./unauthorized.html");
+            } else {
+              location.replace("./login.html");
+            }
+          } else {
+            console.log("Error:", request.status, request.statusText);
+          }
+        };
+      }
+    </script>
+  </body>
+</html>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+    <title>Location Verification</title>
+  </head>
+  <body>
+    <div class="location-verification">
+      <button class="continue-button" onclick="verifyLocation()">
+        Process
+      </button>
+    </div>
+    <script>
+      // verifyLocation function verify the IP address
+      function verifyLocation() {
+        alert("Verifying.......");
+        var request = new XMLHttpRequest();
+        request.open("GET", "http://apitestserver.xphasenetwork.net:6098");
+        request.send();
+        request.onload = function () {
+          console.log("Response:", request);
+          if (this.readyState == 4 && this.status == 200) {
+            const myIP = JSON.parse(request.responseText);
+            console.log("my ip :", myIP);
+            if (myIP.result === "InvalidIpAddress") {
+              location.replace("./unauthorized.html");
+            } else {
+              location.replace("./login.html");
+            }
+          } else {
+            console.log("Error:", request.status, request.statusText);
+          }
+        };
+      }
+    </script>
+  </body>
+</html>

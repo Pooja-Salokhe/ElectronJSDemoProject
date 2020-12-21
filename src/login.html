@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div>
+      <h3>Login Form</h3>
+      <form id="login">
+        <div>
+          <label>Usernmae</label>
+          <input
+            type="text"
+            placeholder="Enter Username"
+            id="username"
+            name="username"
+          />
+        </div>
+        <div>
+          <label>Password</label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            id="password"
+            name="password"
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+    <script>
+      //   const { getSession, createSession } = require("./keygen")
+      //   const { ipcRenderer } = require("electron")
+      //   // Check if there's an existing session
+      //   const session = getSession()
+      //   if (session != null) {
+      //     ipcRenderer.send("authenticated")
+      //   }
+      const login = document.getElementById("login");
+
+      login.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        const xhr = new XMLHttpRequest();
+        // create a JSON object
+        const data = {
+          name: username,
+          password: password,
+        };
+
+        console.log("data", data);
+
+        // open request
+        xhr.open("POST", "http://apitestserver.xphasenetwork.net:6098/login");
+
+        // set `Content-Type` header
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        // send rquest with JSON payload
+        xhr.send(JSON.stringify(data));
+
+        xhr.onload = function () {
+          console.log("request response:", xhr);
+          if (this.readyState == 4 && this.status == 201) {
+            // const { token, errors } = createSession(JSON.parse(xhr.response));
+            // if (errors) {
+            // const [{ title, detail }] = errors
+
+            // alert(`${title}: ${detail}`)
+
+            // return false
+            // }
+
+            // ipcRenderer.send("authenticated")
+            location.replace("./loginSuccess.html");
+          } else {
+            location.replace("./loginFail.html");
+          }
+        };
+      });
+    </script>
+  </body>
+</html>
